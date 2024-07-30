@@ -2,7 +2,6 @@ import React from "react";
 import TodoShow from "./TodoShow";
 
 export default function TodoList({ todo, removeTodo, changeTodo }) {
-  console.log("hh", todo);
   const renderedTodos = todo.map((todo) => {
     return (
       <TodoShow
@@ -16,9 +15,7 @@ export default function TodoList({ todo, removeTodo, changeTodo }) {
 
   return (
     <div>
-      <ul className="todo-list list-none overflow-y-auto max-h-[400px] scroll ">
-        {renderedTodos}
-      </ul>
+      <ul className="todo-list text-white">{renderedTodos}</ul>
     </div>
   );
 }

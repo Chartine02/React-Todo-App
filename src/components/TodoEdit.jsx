@@ -1,7 +1,17 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 export default function TodoEdit({ todo, onSubmit }) {
   const [title, setTitle] = useState(todo.title);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
+  const inputRef = useRef(null);
 
   const handleChange = (e) => {
     setTitle(e.target.value);
@@ -14,9 +24,15 @@ export default function TodoEdit({ todo, onSubmit }) {
 
   return (
     <form className="todo-edit">
-      <input type="text" value={title} onChange={handleChange} />
+      <input
+        type="text"
+        className=" text-black"
+        value={title}
+        onChange={handleChange}
+        ref={inputRef}
+      />
       <button type="submit" onClick={handleSubmit}>
-        <img src={CheckIcon} title="Save" />
+        <FontAwesomeIcon icon={faCheck} />
       </button>
     </form>
   );

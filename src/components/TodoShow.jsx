@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import TodoEdit from "./TodoEdit";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 
-export default function TodoShow(todo, removeTodo, changeTodo) {
+export default function TodoShow({ todo, removeTodo, changeTodo }) {
   const [showEdit, setShowEdit] = useState(false);
 
   const handleDelete = (e) => {
     removeTodo(todo.id);
   };
+
   const handleEdit = (e) => {
     setShowEdit(true);
   };
@@ -28,20 +32,15 @@ export default function TodoShow(todo, removeTodo, changeTodo) {
     );
   }
   return (
-    <li
-      className="todo flex content-between mx-1 p-1 cursor-pointer"
-      onDoubleClick={handleDoubleClick}
-    >
-      <p className={todo.completed && "completed"}>{todo.title}</p>
-      <div className="actions flex gap-1">
+    <li className="todo text-white" onDoubleClick={handleDoubleClick}>
+      <p className={todo.complete ? "completed" : ""}>{todo.title}</p>
+
+      <div className="actions flex gap-4">
         <button onClick={handleDelete}>
-          {/* <img src="" title="Delete" /> */}
-          <FontAwesomeIcon icon="fa-solid fa-trash" />
+          <FontAwesomeIcon icon={faTrash} />
         </button>
-        <button className="cursor-pointer border-0 p-1" onClick={handleEdit}>
-          {/* <img src="" title="Edit" /> */}
-          <FontAwesomeIcon icon="fa-regular fa-pen-to-square" />
-          git
+        <button className="" onClick={handleEdit}>
+          <FontAwesomeIcon icon={faPenToSquare} />
         </button>
       </div>
     </li>

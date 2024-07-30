@@ -14,12 +14,12 @@ export default function TodoCreate({ createTodo }) {
   };
 
   return (
-    <form action="" className="todo-create" onSubmit={handleSubmit}>
+    <form action="" className="todo-create text-black" onSubmit={handleSubmit}>
       <input
         type="text"
         name="title"
         id=""
-        placeholder="Enter your task"
+        placeholder="Enter your task...."
         value={title}
         onChange={handleChange}
       />

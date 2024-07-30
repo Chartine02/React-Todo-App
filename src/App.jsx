@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TodoList from "./components/TodoList";
 import TodoCreate from "./components/TodoCreate";
+import "./App.css";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -28,13 +29,11 @@ export default function App() {
   };
 
   return (
-    <div className="bg-zinc-800 h-[100vh] flex flex-col items-center justify-center p-40 text-white">
+    <div className="main ">
       <div>
-        <h1 className=" text-center">
-          React Todo <br />
-          <span className="text-amber-500 block py-4">
-            Streamline Your day, React Way
-          </span>
+        <h1 className=" text-center text-xl font-semibold ">
+          Todo App <br />
+          <span className="">Plan your day, This Way</span>
         </h1>
         <hr />
         <TodoCreate createTodo={createTodo} />
